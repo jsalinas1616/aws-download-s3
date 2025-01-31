@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Windows
+*.bat
+
+# IDE
+.vscode/
+.idea/ 
