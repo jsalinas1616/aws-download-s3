@@ -58,6 +58,11 @@ async function downloadFile(bucket, key) {
       writeStream.on("error", reject);
     });
   } catch (error) {
+    // Si el archivo no existe en S3, solo advertir y continuar
+    if (error.Code === 'NoSuchKey') {
+      console.warn(`⚠️  El archivo ${key} no existe en S3, ignorando...`);
+      return; // No romper el proceso
+    }
     console.error(`Error al descargar el archivo ${key}:`, error);
     throw error;
   }
